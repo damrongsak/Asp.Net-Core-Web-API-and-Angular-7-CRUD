@@ -1,15 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("oilpmapi/[controller]")]
     [ApiController]
     public class PaymentDetailController : ControllerBase
     {
@@ -26,13 +24,13 @@ namespace WebAPI.Controllers
         {
             return await _context.PaymentDetails.ToListAsync();
         }
-        
+
 
         // PUT: api/PaymentDetail/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPaymentDetail(int id, PaymentDetail paymentDetail)
         {
-            if(id!=paymentDetail.PMId)
+            if (id != paymentDetail.PMId)
             {
                 return BadRequest();
             }
